@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Company - Professional Website</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- css file add -->
+    <link href="static\css\main.css" rel="stylesheet">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <!-- Fixed Header Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+            <!-- Logo -->
+            <a class="navbar-brand" href="#">
+                <!-- <i class="fas fa-cloud"></i> -->
+                Job Mentoring
+            </a>
+
+            <!-- Auth Buttons for Mobile/Medium screens (outside hamburger) -->
+            <div class="auth-buttons-mobile">
+                <button class="btn btn-login">
+                    <i class="fas fa-sign-in-alt me-2"></i>Login
+                </button>
+                <button class="btn btn-signup">
+                    <i class="fas fa-user-plus me-2"></i>Sign Up
+                </button>
+            </div>
+
+            <!-- Mobile Toggle Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navigation Items -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Center Navigation -->
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Ai Resume</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Ai Coverletter</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button">
+                            Job Placement
+                        </a>
+                        <ul class="dropdown-menu mega-menu">
+                            <div class="row justify-content-between">
+                                <div class="col-lg-4 col-md-4">
+                                    <li><a class="dropdown-item" href="#">Web Development</a></li>
+                                    <li><a class="dropdown-item" href="#">Mobile Apps</a></li>
+                                    <li><a class="dropdown-item" href="#">Cloud Solutions</a></li>
+                                </div>
+                                <div class="col-lg-4 col-md-4">
+                                    <li><a class="dropdown-item" href="#">Digital Marketing</a></li>
+                                    <li><a class="dropdown-item" href="#">SEO Services</a></li>
+                                    <li><a class="dropdown-item" href="#">Consulting</a></li>
+                                </div> 
+                                <div class="col-lg-4 col-md-4">
+                                    <li><a class="dropdown-item" href="#">E-commerce</a></li>
+                                    <li><a class="dropdown-item" href="#">UI/UX Design</a></li>
+                                    <li><a class="dropdown-item" href="#">Support</a></li>
+                                </div>
+                            </div>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button">
+                            Career Mentoring
+                        </a>
+                        <ul class="dropdown-menu mega-menu">
+                            <div class="row justify-content-between">
+                                <div class="col-lg-4 col-md-4">
+                                    <li><a class="dropdown-item" href="#">Web Development</a></li>
+                                    <li><a class="dropdown-item" href="#">Mobile Apps</a></li>
+                                    <li><a class="dropdown-item" href="#">Cloud Solutions</a></li>
+                                </div>
+                                <div class="col-lg-4 col-md-4">
+                                    <li><a class="dropdown-item" href="#">Digital Marketing</a></li>
+                                    <li><a class="dropdown-item" href="#">SEO Services</a></li>
+                                    <li><a class="dropdown-item" href="#">Consulting</a></li>
+                                </div> 
+                                <div class="col-lg-4 col-md-4">
+                                    <li><a class="dropdown-item" href="#">E-commerce</a></li>
+                                    <li><a class="dropdown-item" href="#">UI/UX Design</a></li>
+                                    <li><a class="dropdown-item" href="#">Support</a></li>
+                                </div>
+                            </div>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Organization</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Outplacement</a>
+                    </li>
+                </ul>
+
+                <!-- Desktop Auth Buttons (Right side for large screens) -->
+                <div class="auth-buttons-desktop">
+                    <button class="btn btn-login">
+                        <i class="fas fa-sign-in-alt me-2"></i>Login
+                    </button>
+                    <button class="btn btn-signup">
+                        <i class="fas fa-user-plus me-2"></i>Sign Up
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="content">
+        <div class="container">
+            <!-- Hero Section -->
+            <div class="hero-section text-center">
+                <h1 class="typing-cursor"><b>AI Resume Builder & Job Placement Platform</b></h1>
+                <h1 id="dynamic-heading" class="typing-cursor"></h1>
+                <button class="btn btn-signup btn-lg mt-3 mb-5">
+                    <i class="fas fa-rocket me-2"></i>Signup for Free
+                </button>
+                <!-- Main content box -->
+                <div class="bubble-container">
+                    <!-- Floating background bubbles -->
+                    <div class="floating-bubble"></div>
+                    <div class="floating-bubble"></div>
+                    <div class="floating-bubble"></div>
+                    <div class="floating-bubble"></div>
+                    
+                    <!-- Main content box -->
+                    <div class="bubble-box">
+                        <p class="bubble-text">
+                            Transform your job search with our <span class="highlight">revolutionary AI-powered platform</span> that creates perfectly tailored resumes for every job application. Get more interviews, <span class="highlight">beat ATS systems</span>, and land higher-paying positions with intelligent resume optimization and targeted job matching.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- bubble box -->
+                <div class="container">
+                    <!-- <div class="row align-items-center justify-content-center position-relative"> -->
+                        <!-- Column 1 -->
+                        <!-- <div class="col-lg-5 col-md-12 d-flex justify-content-center align-items-center">
+                            <div class="bubble-box1 d-flex flex-column justify-content-center align-items-center" id="bubble-box">
+                                
+                            </div>
+                        </div> -->
+
+                        <!-- Curves (Horizontal stacked for lg, vertical side-by-side for md/sm) -->
+                        <!-- <div class="col-lg-2 col-md-12 d-flex flex-column align-items-center justify-content-center curves-container"> -->
+                            
+                            <!-- Large screen: two horizontal curves stacked vertically -->
+                            <!-- <div class="d-none d-lg-block w-100">
+                                <svg class="curve-horizontal w-100 mb-2" viewBox="0 0 200 150" preserveAspectRatio="xMidYMid meet">
+                                    <path d="M0,75 C50,0 150,150 200,75" stroke="#888" stroke-dasharray="6,6" stroke-width="2" fill="transparent"/>
+                                </svg>
+                                <svg class="curve-horizontal w-100" viewBox="0 0 200 150" preserveAspectRatio="xMidYMid meet">
+                                    <path d="M0,75 C50,0 150,150 200,75" stroke="#888" stroke-dasharray="6,6" stroke-width="2" fill="transparent"/>
+                                </svg>
+                            </div> -->
+
+                            <!-- Medium/Small screens: two vertical curves side-by-side in columns -->
+                            <!-- <div class="d-lg-none w-100">
+                                <div class="row">
+                                    <div class="col-6 d-flex justify-content-center">
+                                        <svg class="curve-vertical" viewBox="0 0 150 200" preserveAspectRatio="xMidYMid meet" style="max-width: 100px; height: auto;">
+                                            <path d="M75,0 C0,50 150,150 75,200" stroke="#888" stroke-dasharray="6,6" stroke-width="2" fill="transparent"/>
+                                        </svg>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-center">
+                                        <svg class="curve-vertical" viewBox="0 0 150 200" preserveAspectRatio="xMidYMid meet" style="max-width: 100px; height: auto;">
+                                            <path d="M75,0 C0,50 150,150 75,200" stroke="#888" stroke-dasharray="6,6" stroke-width="2" fill="transparent"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                         -->
+
+                        <!-- Column 2 -->
+                        <!-- <div class="col-lg-5 col-md-12 d-flex justify-content-center align-items-center">
+                            <div class="bubble-box2 bubble-box-angled d-flex justify-content-center align-items-center job-container">
+                                <div class="job-item">
+                                    <div class="job-title">Software Engineer</div>
+                                    <div class="job-details">Full time, Australia</div>
+                                </div>
+                                <div class="job-item">
+                                    <div class="job-title">Data Analyst</div>
+                                    <div class="job-details">Part time, NY</div>
+                                </div>
+                                <div class="job-item">
+                                    <div class="job-title">UX Designer</div>
+                                    <div class="job-details">Part time, Germany</div>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>-->
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Value Proposition Section -->
+    <section class="value-proposition">
+        <div class="container">
+    <!-- Row 1: Card Left, Image Right -->
+    <div class="row mb-5 align-items-center">
+        <div class="col-lg-6 col-md-6 mb-4">
+            <div class="value-card">
+                <h3>🎯 Smart Resume Tailoring</h3>
+                <p>Our advanced AI analyzes job descriptions and automatically customizes your resume with relevant keywords, skills, and experiences that hiring managers want to see. Each application gets a perfectly matched resume in seconds.</p>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 mb-4">
+            <div class="infographic-container">
+                <div class="infographic-card resume-tailoring">
+                    <div class="info-icon">📄</div>
+                    <div class="info-content">
+                        <div class="info-title">AI Analysis</div>
+                        <div class="info-stats">
+                            <div class="stat-item">
+                                <span class="stat-value">99%</span>
+                                <span class="stat-label">Keyword Match</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">< 5s</span>
+                                <span class="stat-label">Processing Time</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Row 2: Image Left, Card Right -->
+    <div class="row mb-5 align-items-center">
+        <div class="col-lg-6 col-md-6 mb-4">
+            <div class="infographic-container">
+                <div class="infographic-card interview-rate">
+                    <div class="chart-container">
+                        <div class="bar-chart">
+                            <div class="bar bar-before">
+                                <span class="bar-label">Before</span>
+                                <span class="bar-value">5%</span>
+                            </div>
+                            <div class="bar bar-after">
+                                <span class="bar-label">After</span>
+                                <span class="bar-value">15%</span>
+                            </div>
+                        </div>
+                        <div class="chart-title">Interview Rate Comparison</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 mb-4">
+            <div class="value-card">
+                <h3>🚀 3X Higher Interview Rate</h3>
+                <div class="stats-highlight">
+                    <span class="stat-number">300%</span>
+                    <span class="stat-text">Increase in Interview Invitations</span>
+                </div>
+                <p>Users see an average 300% increase in interview invitations compared to generic resumes. Our AI ensures your application passes ATS filters and catches recruiter attention.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Row 3: Card Left, Image Right -->
+    <div class="row mb-5 align-items-center">
+        <div class="col-lg-6 col-md-6 mb-4">
+            <div class="value-card">
+                <h3>⚡ Lightning-Fast Job Matching</h3>
+                <p>Scan millions of job postings daily with AI-powered matching that finds opportunities perfectly aligned with your skills, salary expectations, and career goals.</p>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 mb-4">
+            <div class="infographic-container">
+                <div class="infographic-card job-matching">
+                    <div class="matching-visual">
+                        <div class="profile-circle">
+                            <span>👤</span>
+                            <span class="profile-label">You</span>
+                        </div>
+                        <div class="matching-lines">
+                            <div class="line line1"></div>
+                            <div class="line line2"></div>
+                            <div class="line line3"></div>
+                        </div>
+                        <div class="jobs-grid">
+                            <div class="job-match">💼</div>
+                            <div class="job-match">💼</div>
+                            <div class="job-match">💼</div>
+                        </div>
+                    </div>
+                    <div class="matching-stats">
+                        <span class="match-count">2.5M+ Jobs Scanned Daily</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Row 4: Image Left, Card Right -->
+    <div class="row mb-5 align-items-center">
+        <div class="col-lg-6 col-md-6 mb-4">
+            <div class="infographic-container">
+                <div class="infographic-card ats-optimization">
+                    <div class="ats-visual">
+                        <div class="ats-meter">
+                            <div class="meter-bg">
+                                <div class="meter-fill" style="width: 92%"></div>
+                            </div>
+                            <div class="meter-score">92%</div>
+                        </div>
+                        <div class="ats-features">
+                            <div class="feature-item">✅ Keywords Optimized</div>
+                            <div class="feature-item">✅ Format Compatible</div>
+                            <div class="feature-item">✅ Structure Perfect</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 mb-4">
+            <div class="value-card">
+                <h3>📊 ATS Score Optimization</h3>
+                <p>Real-time ATS compatibility scoring shows exactly how well your resume matches each job posting, with actionable recommendations for improvement.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Row 5: Card Left, Image Right -->
+    <div class="row mb-5 align-items-center">
+        <div class="col-lg-6 col-md-6 mb-4">
+            <div class="value-card">
+                <h3>🔍 Advanced ATS Checker</h3>
+                <div class="ats-score-demo">
+                    <div class="score-circle">
+                        <span class="score-value">95</span>
+                        <span class="score-label">ATS Score</span>
+                    </div>
+                </div>
+                <p>Instantly scan your resume against 200+ ATS systems. Get detailed feedback on formatting, keywords, and structure to ensure maximum compatibility with applicant tracking systems.</p>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 mb-4">
+            <div class="infographic-container">
+                <div class="infographic-card ats-checker">
+                    <div class="checker-visual">
+                        <div class="document-scan">
+                            <div class="document">📄</div>
+                            <div class="scan-line"></div>
+                        </div>
+                        <div class="systems-count">
+                            <span class="count-number">200+</span>
+                            <span class="count-label">ATS Systems</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Row 6: Image Left, Card Right -->
+    <div class="row mb-5 align-items-center">
+        <div class="col-lg-6 col-md-6 mb-4">
+            <div class="infographic-container">
+                <div class="infographic-card job-placement">
+                    <div class="placement-visual">
+                        <div class="success-rate">
+                            <div class="rate-circle">
+                                <span class="rate-value">85%</span>
+                            </div>
+                            <span class="rate-label">Success Rate</span>
+                        </div>
+                        <div class="companies-showcase">
+                            <div class="company-logo">G</div>
+                            <div class="company-logo">M</div>
+                            <div class="company-logo">A</div>
+                            <div class="plus-more">+497</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 mb-4">
+            <div class="value-card">
+                <h3>🏢 Premium Job Placement</h3>
+                <div class="placement-highlight">
+                    <div class="placement-stat">
+                        <span class="placement-number">85%</span>
+                        <span class="placement-text">Job Placement Rate</span>
+                    </div>
+                    <div class="placement-companies">
+                        <span class="company-badge">Google</span>
+                        <span class="company-badge">Microsoft</span>
+                        <span class="company-badge">+500</span>
+                    </div>
+                </div>
+                <p>Connect directly with hiring managers at top companies. Our placement specialists work with 500+ premium employers to fast-track qualified candidates into high-paying positions.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Row 7: Card Left, Image Right -->
+    <div class="row mb-5 align-items-center">
+        <div class="col-lg-6 col-md-6 mb-4">
+            <div class="value-card">
+                <h3>💡 Career Mentoring</h3>
+                <div class="ats-score-demo">
+                </div>
+                <p>Build a powerful resume optimized for ATS and tailored to your career goals.
+
+Get expert guidance to boost your ATS score and stand out to recruiters.
+
+Personalized career mentoring to help you land interviews and grow with confidence.
+
+Craft a job-winning resume and optimize your profile for maximum visibility.
+
+Step-by-step mentoring to align your skills, resume, and career path.</p>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 mb-4">
+            <div class="infographic-container">
+                <div class="infographic-card ats-checker">
+                    <div class="checker-visual">
+                        <div class="document-scan">
+                            <div class="document">📄</div>
+                            <div class="scan-line"></div>
+                        </div>
+                        <div class="systems-count">
+                            <span class="count-number">200+</span>
+                            <span class="count-label">ATS Systems</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </section>
+
+    <!-- Feature Highlights Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-title">
+                <div class="ai-badge">🚀 Complete Suite</div>
+                <h2>Comprehensive AI-Powered Job Placement Suite</h2>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h4>AI Resume Writer</h4>
+                    <p>Generate compelling bullet points, professional summaries, and achievement-focused content that showcases your expertise and captures employer attention.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h4>Keyword Optimization</h4>
+                    <p>Automatically incorporate job-specific keywords without stuffing, ensuring your resume ranks high in ATS systems while maintaining natural readability.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h4>ATS Checker</h4>
+                    <p>Ensure 99% ATS compatibility with instant scoring and detailed feedback on format, keywords, and structure optimization.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h4>Cover Letter Writer</h4>
+                    <p>Create personalized cover letters that complement your tailored resume and tell your unique professional story effectively.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h4>Job Application Tracker</h4>
+                    <p>Organize applications, interviews, and follow-ups in one comprehensive dashboard with automated reminders and status updates.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h4>Interview Preparation</h4>
+                    <p>AI-powered practice sessions with role-specific questions, personalized feedback, and confidence-building exercises.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <!-- Company Info -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="footer-logo">
+                        <!-- <i class="fas fa-cloud"></i> -->
+                        Job Mentoring
+                    </div>
+                    <p class="footer-description">
+                        We provide innovative solutions and professional services to help your business grow and succeed in the digital world.
+                    </p>
+                    <div class="contact-info">
+                        <div><i class="fas fa-map-marker-alt"></i>123 Business Street, City, State 12345</div>
+                        <div><i class="fas fa-phone"></i>+1 (555) 123-4567</div>
+                        <div><i class="fas fa-envelope"></i>info@yourcompany.com</div>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Portfolio</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Our Services</h5>
+                    <ul>
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">Mobile Apps</a></li>
+                        <li><a href="#">Cloud Solutions</a></li>
+                        <li><a href="#">Digital Marketing</a></li>
+                        <li><a href="#">SEO Services</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Support</h5>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Support Ticket</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Social Media -->
+            <div class="footer-social">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+
+            <!-- Copyright -->
+            <div class="footer-bottom">
+                <p>&copy; 2025 Your Company. All rights reserved. | Designed with ❤️ for success</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!--dynamic typing effect -->
+    <script>
+        // typing effect hero section
+        document.addEventListener("DOMContentLoaded", function () {
+            const text = "Land Your Dream Job 3X Faster";
+            const heading = document.getElementById("dynamic-heading");
+            let index = 0;
+
+            function typeEffect() {
+                if (index < text.length) {
+                    heading.innerHTML += text.charAt(index);
+                    index++;
+                    setTimeout(typeEffect, 80); // speed (lower is faster)
+                }
+            }
+
+            typeEffect();
+        });
+        // bubble box typing effect
+        document.addEventListener("DOMContentLoaded", function () {
+            // Lines grouped into sets of 5
+            const lineGroups = [
+                [
+                    "Build your resume in minutes",
+                    "AI-powered job recommendations",
+                    "Beat ATS systems effortlessly",
+                    "ATS-friendly resume templates",
+                    "Export in PDF & Word formats"
+                ],
+                [
+                    "Get hired 3X faster",
+                    "Boost your hiring chances",
+                    "Track applications easily",
+                    "Real-time interview tips",
+                    "Intelligent resume optimization"
+                ],
+                [
+                    "AI-powered resume creation",
+                    "Perfectly tailored for each job",
+                    "Beat ATS systems instantly",
+                    "Get more interviews fast",
+                    "Land higher-paying roles"
+                ],
+                [
+                    "Revolutionary job matching",
+                    "Intelligent optimization tools", 
+                    "Transform your career today",
+                    "Success-driven platform",
+                    "Your dream job awaits"
+                ]
+            ];
+
+            let groupIndex = 0;
+            let lineIndex = 0;
+            let charIndex = 0;
+            const bubbleBox = document.getElementById("bubble-box");
+
+            function typeLine() {
+                let currentLine = lineGroups[groupIndex][lineIndex];
+
+                // If starting new line, create a new element
+                if (charIndex === 0) {
+                    const p = document.createElement("p");
+                    // p.classList.add("typing-line");
+                    bubbleBox.appendChild(p);
+                }
+
+                let p = bubbleBox.lastElementChild;
+                p.textContent += currentLine.charAt(charIndex);
+                charIndex++;
+
+                if (charIndex < currentLine.length) {
+                    setTimeout(typeLine, 50); // Typing speed
+                } else {
+                    // Finished line
+                    lineIndex++;
+                    charIndex = 0;
+                    if (lineIndex < 5) {
+                        setTimeout(typeLine, 500); // Pause before next line
+                    } else {
+                        // All 5 lines done — wait and clear box
+                        setTimeout(() => {
+                            bubbleBox.innerHTML = "";
+                            groupIndex = (groupIndex + 1) % lineGroups.length;
+                            lineIndex = 0;
+                            typeLine();
+                        }, 1500);
+                    }
+                }
+            }
+
+            typeLine();
+        });
+</script>
+</body>
+</html>
