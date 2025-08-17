@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATS Resume Optimization</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            overflow-x: hidden;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        /* Animated background elements */
+        .bg-decoration {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-robot {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            animation: scan 8s ease-in-out infinite;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .floating-robot:nth-child(1) {
+            top: 15%;
+            left: 8%;
+            animation-delay: 0s;
+        }
+
+        .floating-robot:nth-child(2) {
+            top: 25%;
+            right: 12%;
+            animation-delay: 3s;
+        }
+
+        .floating-robot:nth-child(3) {
+            bottom: 35%;
+            left: 6%;
+            animation-delay: 6s;
+        }
+
+        .floating-robot:nth-child(4) {
+            bottom: 15%;
+            right: 8%;
+            animation-delay: 2s;
+        }
+
+        @keyframes scan {
+            0%, 100% { 
+                transform: translateY(0px) scale(1);
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            }
+            50% { 
+                transform: translateY(-25px) scale(1.1);
+                opacity: 1;
+                box-shadow: 0 0 40px rgba(255, 255, 255, 0.4);
+            }
+        }
+
+        /* Main container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 80px 0 60px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #ffffff 0%, #e3f2fd 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { text-shadow: 0 0 20px rgba(255, 255, 255, 0.5); }
+            50% { text-shadow: 0 0 35px rgba(255, 255, 255, 0.8); }
+        }
+
+        .header p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            max-width: 850px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+
+        /* Content sections */
+        .content-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            margin: 40px 0;
+            padding: 50px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .content-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+
+        /* Warning section */
+        .warning-section {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+        }
+
+        .warning-section .section-title {
+            color: white;
+        }
+
+        .warning-list {
+            list-style: none;
+            padding: 0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .warning-list li {
+            margin-bottom: 15px;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border-left: 4px solid rgba(255, 255, 255, 0.5);
+            position: relative;
+            padding-left: 50px;
+        }
+
+        .warning-list li::before {
+            content: '⚠';
+            position: absolute;
+            left: 20px;
+            font-size: 1.2rem;
+        }
+
+        /* Solution grid */
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .solution-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 15px;
+            padding: 35px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #667eea;
+            position: relative;
+        }
+
+        .solution-card::before {
+            content: '🤖';
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            font-size: 2rem;
+            background: white;
+            border-radius: 50%;
+            padding: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .solution-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .solution-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .solution-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .solution-list li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .solution-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Results section */
+        .results-section {
+            background: linear-gradient(135deg, #10ac84 0%, #00a085 100%);
+            color: white;
+        }
+
+        .results-section .section-title {
+            color: white;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .result-card {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .result-card:hover {
+            transform: translateY(-5px) scale(1.05);
+        }
+
+        .result-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .result-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .result-description {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* Progress bar animation */
+        .progress-demo {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .score-bar {
+            background: rgba(255, 255, 255, 0.2);
+            height: 30px;
+            border-radius: 15px;
+            position: relative;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .score-fill {
+            background: linear-gradient(90deg, #ff6b6b 0%, #ffa726 50%, #4caf50 100%);
+            height: 100%;
+            border-radius: 15px;
+            animation: fillScore 3s ease-out infinite;
+            position: relative;
+        }
+
+        @keyframes fillScore {
+            0% { width: 0%; }
+            100% { width: 99%; }
+        }
+
+        .score-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 60px 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            margin: 40px 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+
+            .header p {
+                font-size: 1.1rem;
+            }
+
+            .content-section {
+                padding: 30px;
+                margin: 20px 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .solution-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+
+            .solution-card {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background decorations -->
+    <div class="bg-decoration floating-robot"></div>
+    <div class="bg-decoration floating-robot"></div>
+    <div class="bg-decoration floating-robot"></div>
+    <div class="bg-decoration floating-robot"></div>
+
+    <div class="container">
+        <!-- Main Header -->
+        <header class="header">
+            <h1>ATS Resume Optimization</h1>
+            <p>Beat Applicant Tracking Systems Every Time</p>
+            <p>Ensure your resume passes through Applicant Tracking Systems and reaches human recruiters. Our advanced ATS optimization technology guarantees maximum compatibility with all major ATS platforms.</p>
+        </header>
+
+        <!-- ATS Challenges Section -->
+        <section class="content-section warning-section">
+            <h2 class="section-title">Why 75% of Resumes Never Reach Human Eyes</h2>
+            <p class="section-subtitle">Most resumes fail ATS screening due to:</p>
+            
+            <ul class="warning-list">
+                <li>Incompatible formatting and design elements</li>
+                <li>Missing job-relevant keywords</li>
+                <li>Poor section organization and labeling</li>
+                <li>Non-standard fonts and layouts</li>
+                <li>Image-based text that can't be parsed</li>
+            </ul>
+
+            <div class="progress-demo">
+                <h3 style="margin-bottom: 15px;">Typical ATS Score Without Optimization</h3>
+                <div class="score-bar">
+                    <div class="score-fill"></div>
+                    <div class="score-text">ATS Score: 99/100</div>
+                </div>
+                <p style="opacity: 0.9;">Watch your resume transform from rejection to acceptance</p>
+            </div>
+        </section>
+
+        <!-- Our Solution Section -->
+        <section class="content-section">
+            <h2 class="section-title">Comprehensive ATS Optimization Suite</h2>
+            
+            <div class="solution-grid">
+                <div class="solution-card">
+                    <h3>Real-Time ATS Scoring</h3>
+                    <ul class="solution-list">
+                        <li>Instant compatibility analysis (0-100 score)</li>
+                        <li>Platform-specific testing (Workday, Taleo, Greenhouse, etc.)</li>
+                        <li>Detailed improvement recommendations</li>
+                        <li>Before/after comparison tools</li>
+                    </ul>
+                </div>
+
+                <div class="solution-card">
+                    <h3>Keyword Optimization Engine</h3>
+                    <ul class="solution-list">
+                        <li>Job description analysis and keyword extraction</li>
+                        <li>Natural keyword integration without stuffing</li>
+                        <li>Industry-specific terminology recognition</li>
+                        <li>Competitor keyword analysis</li>
+                    </ul>
+                </div>
+
+                <div class="solution-card">
+                    <h3>Format Optimization</h3>
+                    <ul class="solution-list">
+                        <li>ATS-friendly template library</li>
+                        <li>Font and spacing optimization</li>
+                        <li>Section header standardization</li>
+                        <li>File format recommendations</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section class="content-section results-section">
+            <h2 class="section-title">Proven ATS Optimization Results</h2>
+            
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-number">99%</div>
+                    <div class="result-title">ATS Pass Rate</div>
+                    <div class="result-description">Our optimized resumes consistently pass ATS screening</div>
+                </div>
+
+                <div class="result-card">
+                    <div class="result-number">3X</div>
+                    <div class="result-title">More Callbacks</div>
+                    <div class="result-description">Users see dramatic increases in recruiter outreach</div>
+                </div>
+
+                <div class="result-card">
+                    <div class="result-number">50+</div>
+                    <div class="result-title">Industry Validation</div>
+                    <div class="result-description">Tested across major ATS platforms</div>
+                </div>
+
+                <div class="result-card">
+                    <div class="result-number">24/7</div>
+                    <div class="result-title">Continuous Updates</div>
+                    <div class="result-description">Algorithm updates based on latest ATS changes</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2 style="color: white; margin-bottom: 20px;">Ready to Beat the ATS?</h2>
+            <p style="color: rgba(255, 255, 255, 0.9); margin-bottom: 30px; font-size: 1.1rem;">Get your resume optimized and start landing more interviews today</p>
+            <a href="#" class="cta-button">Optimize My Resume Now</a>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Success Stories - Transform Your Job Search</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #667eea 100%);
+            min-height: 100vh;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        .hero-section {
+            position: relative;
+            padding: 4rem 0 2rem;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .floating-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: floatParticle 10s linear infinite;
+        }
+        
+        .particle:nth-child(1) { width: 8px; height: 8px; left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { width: 12px; height: 12px; left: 20%; animation-delay: 2s; }
+        .particle:nth-child(3) { width: 6px; height: 6px; left: 30%; animation-delay: 4s; }
+        .particle:nth-child(4) { width: 10px; height: 10px; left: 40%; animation-delay: 6s; }
+        .particle:nth-child(5) { width: 14px; height: 14px; left: 50%; animation-delay: 8s; }
+        .particle:nth-child(6) { width: 8px; height: 8px; left: 60%; animation-delay: 1s; }
+        .particle:nth-child(7) { width: 12px; height: 12px; left: 70%; animation-delay: 3s; }
+        .particle:nth-child(8) { width: 6px; height: 6px; left: 80%; animation-delay: 5s; }
+        .particle:nth-child(9) { width: 10px; height: 10px; left: 90%; animation-delay: 7s; }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff 0%, #f0f8ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.6;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+        
+        .stats-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+        
+        .stat-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .stat-label {
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .testimonials-section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #ffffff 0%, #f0f8ff 100%);
+            border-radius: 2px;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 2.5rem;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 120px;
+            color: rgba(102, 126, 234, 0.1);
+            font-family: serif;
+            line-height: 1;
+        }
+        
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #4a4a4a;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .author-info h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 0.25rem;
+        }
+        
+        .author-info p {
+            color: #667eea;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        
+        .rating {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            display: flex;
+            gap: 2px;
+        }
+        
+        .star {
+            color: #ffd700;
+            font-size: 1.2rem;
+        }
+        
+        .metrics-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+        }
+        
+        .metrics-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 3rem;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+        }
+        
+        .metric-item {
+            position: relative;
+        }
+        
+        .metric-number {
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #ffffff 0%, #f0f8ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            display: block;
+            line-height: 1;
+        }
+        
+        .metric-label {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 600;
+            line-height: 1.4;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 24px;
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 4rem;
+        }
+        
+        .cta-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="3" fill="white" opacity="0.1"/><circle cx="75" cy="25" r="2" fill="white" opacity="0.1"/><circle cx="50" cy="50" r="4" fill="white" opacity="0.1"/><circle cx="25" cy="75" r="2" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="3" fill="white" opacity="0.1"/></svg>') repeat;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .cta-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            padding: 1.25rem 2.5rem;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .cta-button.primary {
+            background: rgba(255, 255, 255, 0.95);
+            color: #667eea;
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+        }
+        
+        .cta-button.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.7);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+        }
+        
+        .cta-button.primary:hover {
+            box-shadow: 0 12px 35px rgba(255, 255, 255, 0.4);
+        }
+        
+        .cta-button.secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .trust-indicators {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 600;
+        }
+        
+        .trust-icon {
+            font-size: 1.5rem;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes countUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-count {
+            animation: countUp 1s ease-out;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .trust-indicators {
+                gap: 1.5rem;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero-section">
+        <div class="floating-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        
+        <div class="container">
+            <h1 class="hero-title">Career Success Stories</h1>
+            <p class="hero-subtitle">See how our AI-powered platform has transformed thousands of job searches and accelerated careers worldwide</p>
+            
+            <div class="stats-overview">
+                <div class="stat-card">
+                    <span class="stat-number" data-count="97">0</span>
+                    <span class="stat-label">Success Rate</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" data-count="2.5">0</span>
+                    <span class="stat-label">Million+ Placements</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" data-count="15">0</span>
+                    <span class="stat-label">Days Avg. to Offer</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" data-count="74">0</span>
+                    <span class="stat-label">% Interview Increase</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">Real Stories, Real Results</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">
+                            After months of job searching with no luck, I tried this AI platform. Within 2 weeks, I had 5 interviews lined up and landed my dream job with a 30% salary increase. The resume tailoring feature is incredible!
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">SM</div>
+                            <div class="author-info">
+                                <h4>Sarah M.</h4>
+                                <p>Marketing Manager</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">
+                            The ATS optimization made all the difference. My resume went from getting zero responses to having recruiters reach out daily. The interview preparation helped me nail the technical questions too.
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">DR</div>
+                            <div class="author-info">
+                                <h4>David R.</h4>
+                                <p>Software Engineer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">
+                            As a new graduate, I had no idea how to write a compelling resume. The AI guided me through everything and helped me highlight my internships and projects effectively. Got my first job within 3 weeks!
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">ML</div>
+                            <div class="author-info">
+                                <h4>Maria L.</h4>
+                                <p>Recent Graduate</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="metrics-section">
+        <div class="container">
+            <h2 class="metrics-title">Platform Success Metrics</h2>
+            
+            <div class="metrics-grid">
+                <div class="metric-item">
+                    <span class="metric-number" data-metric="2.5">0</span>
+                    <p class="metric-label">Million+ Successful Job Placements</p>
+                </div>
+                
+                <div class="metric-item">
+                    <span class="metric-number" data-metric="74">0</span>
+                    <p class="metric-label">% Average Increase in Interview Rates</p>
+                </div>
+                
+                <div class="metric-item">
+                    <span class="metric-number" data-metric="300">0</span>
+                    <p class="metric-label">% Improvement in ATS Pass Rates</p>
+                </div>
+                
+                <div class="metric-item">
+                    <span class="metric-number" data-metric="85">0</span>
+                    <p class="metric-label">% User Satisfaction Score</p>
+                </div>
+                
+                <div class="metric-item">
+                    <span class="metric-number" data-metric="15">0</span>
+                    <p class="metric-label">Days Average Time to Job Offer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta-section">
+        <div class="cta-bg"></div>
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Write Your Success Story?</h2>
+                <p class="cta-subtitle">Join thousands of professionals who've transformed their careers with our AI-powered platform</p>
+                
+                <div class="cta-buttons">
+                    <a href="#" class="cta-button primary" onclick="startFreeTrail()">Start Your Journey</a>
+                    <a href="#" class="cta-button secondary" onclick="viewMoreStories()">View More Stories</a>
+                </div>
+                
+                <div class="trust-indicators">
+                    <div class="trust-item">
+                        <span class="trust-icon">🔒</span>
+                        <span>100% Secure</span>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-icon">⚡</span>
+                        <span>Instant Results</span>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-icon">💰</span>
+                        <span>Money-Back Guarantee</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        // Animated counter function
+        function animateCounter(element, target, duration = 2000) {
+            const start = performance.now();
+            const startValue = 0;
+            
+            function update(currentTime) {
+                const elapsed = currentTime - start;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                // Easing function for smoother animation
+                const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+                const currentValue = startValue + (target - startValue) * easeOutCubic;
+                
+                if (target >= 100) {
+                    element.textContent = Math.floor(currentValue).toLocaleString();
+                } else {
+                    element.textContent = currentValue.toFixed(1);
+                }
+                
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                }
+            }
+            
+            requestAnimationFrame(update);
+        }
+        
+        // Intersection observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Animate counters
+                    if (entry.target.dataset.count) {
+                        const target = parseFloat(entry.target.dataset.count);
+                        animateCounter(entry.target, target, 1500);
+                        entry.target.classList.add('animate-count');
+                    }
+                    
+                    // Animate metrics
+                    if (entry.target.dataset.metric) {
+                        const target = parseFloat(entry.target.dataset.metric);
+                        animateCounter(entry.target, target, 2000);
+                        entry.target.classList.add('animate-count');
+                    }
+                    
+                    // General fade in animation
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                    
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+        
+        // Observe all animated elements
+        document.querySelectorAll('[data-count], [data-metric], .testimonial-card, .stat-card').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // CTA button functions
+        function startFreeTrail() {
+            // Add button feedback
+            event.target.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                event.target.style.transform = '';
+            }, 150);
+            
+            alert('🚀 Welcome! Let\'s start transforming your career journey...');
+        }
+        
+        function viewMoreStories() {
+            // Add button feedback
+            event.target.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                event.target.style.transform = '';
+            }, 150);
+            
+            alert('📖 Loading more inspiring success stories...');
+        }
+        
+        // Add hover effects to testimonial cards
+        document.querySelectorAll('.testimonial-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transition = 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+            });
+        });
+        
+        // Add click handlers for testimonial cards
+        document.querySelectorAll('.testimonial-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const author = this.querySelector('h4').textContent;
+                alert(`💬 Opening detailed success story from ${author}...`);
+            });
+        });
+        
+        // Parallax effect for floating particles
+        window.addEventListener('scroll', () => {
+            const particles = document.querySelectorAll('.particle');
+            const scrolled = window.pageYOffset;
+            
+            particles.forEach((particle, index) => {
+                const speed = 0.5 + (index * 0.1);
+                particle.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+        
+        // Add loading animation to page
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>

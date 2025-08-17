@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Cover Letter Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            overflow-x: hidden;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        /* Animated background elements */
+        .bg-decoration {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-icon:nth-child(1) {
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-icon:nth-child(2) {
+            top: 20%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .floating-icon:nth-child(3) {
+            bottom: 30%;
+            left: 5%;
+            animation-delay: 4s;
+        }
+
+        .floating-icon:nth-child(4) {
+            bottom: 20%;
+            right: 10%;
+            animation-delay: 1s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        /* Main container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 80px 0 60px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #ffffff 0%, #e3f2fd 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 20px rgba(255, 255, 255, 0.5); }
+            to { text-shadow: 0 0 30px rgba(255, 255, 255, 0.8); }
+        }
+
+        .header p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+
+        /* Content sections */
+        .content-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            margin: 40px 0;
+            padding: 50px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .content-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        /* Features grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #667eea;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+            color: #555;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        /* Process section */
+        .process-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .process-section .section-title {
+            color: white;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .process-step h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .process-step p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 60px 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            margin: 40px 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(238, 90, 36, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(238, 90, 36, 0.4);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+
+            .header p {
+                font-size: 1.1rem;
+            }
+
+            .content-section {
+                padding: 30px;
+                margin: 20px 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background decorations -->
+    <div class="bg-decoration floating-icon"></div>
+    <div class="bg-decoration floating-icon"></div>
+    <div class="bg-decoration floating-icon"></div>
+    <div class="bg-decoration floating-icon"></div>
+
+    <div class="container">
+        <!-- Main Header -->
+        <header class="header">
+            <h1>AI Cover Letter Generator</h1>
+            <p>Personalized Letters That Get Noticed</p>
+            <p>Create compelling, personalized cover letters that complement your tailored resume. Our AI writes unique letters for each application, highlighting relevant experience and demonstrating genuine interest.</p>
+        </header>
+
+        <!-- Features Section -->
+        <section class="content-section">
+            <h2 class="section-title">Intelligent Cover Letter Creation</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Personalization Engine</h3>
+                    <ul class="feature-list">
+                        <li>Analyzes job description and company culture</li>
+                        <li>Incorporates specific requirements and qualifications</li>
+                        <li>Matches tone and style to company communications</li>
+                        <li>Includes relevant experience and achievements</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h3>Template Variety</h3>
+                    <ul class="feature-list">
+                        <li>Industry-specific cover letter formats</li>
+                        <li>Entry-level, mid-career, and executive templates</li>
+                        <li>Traditional and modern design options</li>
+                        <li>Email and formal letter formats</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h3>Quality Assurance</h3>
+                    <ul class="feature-list">
+                        <li>Grammar and spell checking</li>
+                        <li>Readability optimization</li>
+                        <li>Length and format recommendations</li>
+                        <li>Professional tone verification</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Writing Process Section -->
+        <section class="content-section process-section">
+            <h2 class="section-title">How Our AI Creates Winning Cover Letters</h2>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h4>Job Analysis</h4>
+                    <p>AI reads job posting and company information</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h4>Experience Matching</h4>
+                    <p>Identifies relevant skills and achievements</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h4>Content Generation</h4>
+                    <p>Creates personalized paragraphs and talking points</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h4>Tone Optimization</h4>
+                    <p>Adjusts language for company culture fit</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h4>Final Review</h4>
+                    <p>Quality checks and improvement suggestions</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2 style="color: white; margin-bottom: 20px;">Ready to Create Your Perfect Cover Letter?</h2>
+            <p style="color: rgba(255, 255, 255, 0.9); margin-bottom: 30px; font-size: 1.1rem;">Join thousands of job seekers who've landed interviews with our AI-powered cover letters</p>
+            <a href="#" class="cta-button">Start Writing Now</a>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Builder</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            overflow-x: hidden;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        /* Animated background elements */
+        .bg-decoration {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-document {
+            width: 80px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            animation: documentFloat 12s ease-in-out infinite;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+        }
+
+        .floating-document::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 2px;
+            box-shadow: 
+                0 8px 0 rgba(255, 255, 255, 0.3),
+                0 16px 0 rgba(255, 255, 255, 0.3),
+                0 24px 0 rgba(255, 255, 255, 0.3),
+                0 32px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .floating-document:nth-child(1) {
+            top: 10%;
+            left: 8%;
+            animation-delay: 0s;
+        }
+
+        .floating-document:nth-child(2) {
+            top: 25%;
+            right: 10%;
+            animation-delay: 4s;
+        }
+
+        .floating-document:nth-child(3) {
+            bottom: 30%;
+            left: 5%;
+            animation-delay: 8s;
+        }
+
+        .floating-document:nth-child(4) {
+            bottom: 20%;
+            right: 8%;
+            animation-delay: 2s;
+        }
+
+        @keyframes documentFloat {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.7;
+            }
+            33% { 
+                transform: translateY(-20px) rotate(2deg);
+                opacity: 0.9;
+            }
+            66% { 
+                transform: translateY(-10px) rotate(-1deg);
+                opacity: 1;
+            }
+        }
+
+        /* Main container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 80px 0 60px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #ffffff 0%, #e3f2fd 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: buildPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes buildPulse {
+            0%, 100% { text-shadow: 0 0 30px rgba(255, 255, 255, 0.6); }
+            50% { text-shadow: 0 0 50px rgba(255, 255, 255, 0.9); }
+        }
+
+        .header p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            max-width: 900px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+
+        /* Content sections */
+        .content-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            margin: 40px 0;
+            padding: 50px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .content-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        /* Features grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 15px;
+            padding: 35px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #667eea;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover::before {
+            transform: scale(1.2);
+        }
+
+        .feature-card:nth-child(1)::after { content: '🧠'; }
+        .feature-card:nth-child(2)::after { content: '⚙️'; }
+        .feature-card:nth-child(3)::after { content: '📋'; }
+
+        .feature-card::after {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            font-size: 2.2rem;
+            z-index: 1;
+            animation: iconFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .feature-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Process section */
+        .process-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .process-section .section-title {
+            color: white;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .process-step:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            animation: stepPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes stepPulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 rgba(255, 255, 255, 0.4); }
+            50% { transform: scale(1.1); box-shadow: 0 0 20px rgba(255, 255, 255, 0.4); }
+        }
+
+        .process-step h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .process-step p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Benefits section */
+        .benefits-section {
+            background: linear-gradient(135deg, #10ac84 0%, #00a085 100%);
+            color: white;
+        }
+
+        .benefits-section .section-title {
+            color: white;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .benefit-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border-radius: 15px;
+            padding: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            text-align: center;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .benefit-stat {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            animation: statGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes statGlow {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .benefit-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .benefit-description {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* Demo section */
+        .demo-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            margin: 40px 0;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .demo-mockup {
+            max-width: 600px;
+            margin: 30px auto;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .typing-animation {
+            border-right: 2px solid #667eea;
+            animation: typing 4s steps(40, end) infinite;
+        }
+
+        @keyframes typing {
+            0% { width: 0; }
+            50% { width: 100%; }
+            100% { width: 0; }
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 60px 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            margin: 40px 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+
+            .header p {
+                font-size: 1.1rem;
+            }
+
+            .content-section {
+                padding: 30px;
+                margin: 20px 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .process-steps {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background decorations -->
+    <div class="bg-decoration floating-document"></div>
+    <div class="bg-decoration floating-document"></div>
+    <div class="bg-decoration floating-document"></div>
+    <div class="bg-decoration floating-document"></div>
+
+    <div class="container">
+        <!-- Main Header -->
+        <header class="header">
+            <h1>AI Resume Builder</h1>
+            <p>Create ATS-Optimized Resumes That Get Results</p>
+            <p>Build professional, ATS-friendly resumes that pass automated screening and impress hiring managers. Our AI technology creates personalized content based on your experience and target job requirements.</p>
+        </header>
+
+        <!-- Key Features Section -->
+        <section class="content-section">
+            <h2 class="section-title">Revolutionary AI Resume Building Technology</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Smart Content Generation</h3>
+                    <ul class="feature-list">
+                        <li>AI-powered bullet point writer creates achievement-focused descriptions</li>
+                        <li>Automatic quantification of accomplishments with industry-specific metrics</li>
+                        <li>Professional summary generator tailored to your career level and goals</li>
+                        <li>Skills section optimization based on job market trends</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h3>ATS Optimization Engine</h3>
+                    <ul class="feature-list">
+                        <li>Real-time ATS compatibility scoring (0-100 scale)</li>
+                        <li>Keyword density analysis and optimization</li>
+                        <li>Format checking for maximum readability by ATS systems</li>
+                        <li>Industry-specific template recommendations</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h3>Multi-Version Resume Management</h3>
+                    <ul class="feature-list">
+                        <li>Create unlimited resume variations for different job types</li>
+                        <li>Master resume with all experience that branches into targeted versions</li>
+                        <li>One-click customization for specific job applications</li>
+                        <li>Version history and comparison tools</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="content-section process-section">
+            <h2 class="section-title">How Our AI Resume Builder Works</h2>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h4>Upload or Import</h4>
+                    <p>Start with existing resume, LinkedIn profile, or build from scratch</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h4>AI Analysis</h4>
+                    <p>Our system analyzes your background and identifies strengths</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h4>Job Targeting</h4>
+                    <p>Paste job descriptions for instant resume customization</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h4>Content Enhancement</h4>
+                    <p>AI improves bullet points, adds keywords, optimizes formatting</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h4>ATS Scoring</h4>
+                    <p>Real-time feedback ensures maximum compatibility</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">6</div>
+                    <h4>Export & Apply</h4>
+                    <p>Download in multiple formats (PDF, DOCX, ATS-friendly)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="content-section benefits-section">
+            <h2 class="section-title">Why Job Seekers Choose Our AI Resume Builder</h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-stat">74%</div>
+                    <div class="benefit-title">Higher Response Rate</div>
+                    <div class="benefit-description">Users report significantly more interview invitations</div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-stat">5</div>
+                    <div class="benefit-title">Minute Resume Creation</div>
+                    <div class="benefit-description">Go from blank page to professional resume in minutes</div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-stat">50+</div>
+                    <div class="benefit-title">Industry-Specific Optimization</div>
+                    <div class="benefit-description">Templates and content tailored to your field</div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-stat">AI</div>
+                    <div class="benefit-title">Continuous Learning</div>
+                    <div class="benefit-description">AI improves based on successful job placements</div>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-stat">📱</div>
+                    <div class="benefit-title">Mobile-Friendly</div>
+                    <div class="benefit-description">Build and edit resumes on any device</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2 style="color: white; margin-bottom: 20px;">Ready to Build Your Winning Resume?</h2>
+            <p style="color: rgba(255, 255, 255, 0.9); margin-bottom: 30px; font-size: 1.1rem;">Join over 100,000 job seekers who've landed interviews with our AI-powered resume builder</p>
+            <a href="#" class="cta-button">Build My Resume Now</a>
+        </section>
+    </div>
+</body>
+</html>
