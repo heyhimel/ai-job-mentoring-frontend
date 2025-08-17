@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Career Mentoring Services | Expert Career Coaching & Development</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            overflow-x: hidden;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        /* Animated background elements */
+        .bg-decoration {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-mentor {
+            width: 90px;
+            height: 90px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: mentorFloat 15s ease-in-out infinite;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+        }
+
+        .floating-mentor::before {
+            content: '👨‍💼';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+            opacity: 0.8;
+        }
+
+        .floating-mentor:nth-child(1) {
+            top: 15%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-mentor:nth-child(2) {
+            top: 30%;
+            right: 15%;
+            animation-delay: 5s;
+        }
+
+        .floating-mentor:nth-child(3) {
+            bottom: 25%;
+            left: 8%;
+            animation-delay: 10s;
+        }
+
+        .floating-mentor:nth-child(4) {
+            bottom: 35%;
+            right: 12%;
+            animation-delay: 3s;
+        }
+
+        @keyframes mentorFloat {
+            0%, 100% { 
+                transform: translateY(0px) scale(1);
+                opacity: 0.7;
+            }
+            33% { 
+                transform: translateY(-25px) scale(1.1);
+                opacity: 0.9;
+            }
+            66% { 
+                transform: translateY(-15px) scale(0.95);
+                opacity: 1;
+            }
+        }
+
+        /* Main container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 80px 0 60px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff 0%, #e3f2fd 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: mentorGlow 5s ease-in-out infinite;
+        }
+
+        .header .subtitle {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            opacity: 0.95;
+        }
+
+        @keyframes mentorGlow {
+            0%, 100% { text-shadow: 0 0 30px rgba(255, 255, 255, 0.6); }
+            50% { text-shadow: 0 0 50px rgba(255, 255, 255, 0.9); }
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 950px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+
+        /* Content sections */
+        .content-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            margin: 40px 0;
+            padding: 50px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .content-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .section-title {
+            font-size: 2.3rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        /* Service cards grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #667eea;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scale(1.3);
+        }
+
+        .service-card:nth-child(1)::after { content: '🎯'; }
+        .service-card:nth-child(2)::after { content: '🏭'; }
+        .service-card:nth-child(3)::after { content: '📈'; }
+        .service-card:nth-child(4)::after { content: '🎯'; }
+        .service-card:nth-child(5)::after { content: '👥'; }
+        .service-card:nth-child(6)::after { content: '🎓'; }
+
+        .service-card::after {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            font-size: 2.5rem;
+            z-index: 1;
+            animation: serviceFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes serviceFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
+        }
+
+        .service-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-card h3 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .service-card .card-description {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        .service-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .service-list li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .service-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Industry tags */
+        .industry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .industry-tag {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 25px;
+            text-align: center;
+            font-weight: 500;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .industry-tag:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Skills development section */
+        .skills-section {
+            background: linear-gradient(135deg, #10ac84 0%, #00a085 100%);
+            color: white;
+        }
+
+        .skills-section .section-title {
+            color: white;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .skills-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border-radius: 15px;
+            padding: 35px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .skills-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .skills-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .skills-card .card-description {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+
+        .skills-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .skills-list li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
+
+        .skills-list li::before {
+            content: '⚡';
+            position: absolute;
+            left: 0;
+            font-size: 1.1rem;
+        }
+
+        /* Leadership section */
+        .leadership-section {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+        }
+
+        .leadership-section .section-title {
+            color: white;
+        }
+
+        .leadership-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border-radius: 15px;
+            padding: 35px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            margin-top: 30px;
+        }
+
+        .leadership-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .leadership-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .leadership-card .card-description {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+
+        .leadership-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .leadership-list li {
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            position: relative;
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.5;
+            padding-left: 45px;
+        }
+
+        .leadership-list li::before {
+            content: '👑';
+            position: absolute;
+            left: 15px;
+            font-size: 1.2rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 60px 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            margin: 40px 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.2rem;
+            }
+
+            .header .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .header p {
+                font-size: 1rem;
+            }
+
+            .content-section {
+                padding: 30px;
+                margin: 20px 0;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .industry-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .leadership-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background decorations -->
+    <div class="bg-decoration floating-mentor"></div>
+    <div class="bg-decoration floating-mentor"></div>
+    <div class="bg-decoration floating-mentor"></div>
+    <div class="bg-decoration floating-mentor"></div>
+
+    <div class="container">
+        <!-- Main Header -->
+        <header class="header">
+            <h1>Professional Career Mentoring Services</h1>
+            <p class="subtitle">Expert Career Coaching & Development</p>
+            <p>Transform Your Career with Expert Mentoring and Coaching Services</p>
+            <p>Advance your career with our comprehensive career mentoring services designed to accelerate professional growth. Our experienced career mentors and coaches provide personalized guidance, strategic career planning, and skill development programs to help you achieve your career goals.</p>
+        </header>
+
+        <!-- One-on-One Career Mentoring Services -->
+        <section class="content-section">
+            <h2 class="section-title">One-on-One Career Mentoring Services</h2>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Personal Career Coaching & Development</h3>
+                    <p class="card-description"><strong>Unlock your professional potential with personalized career coaching.</strong> Our certified career coaches provide individualized mentoring sessions focused on career strategy development, goal setting, and professional growth. Whether you're seeking career advancement, leadership development, or executive coaching, our mentors deliver results-driven career guidance.</p>
+                    
+                    <h4 style="font-size: 1.2rem; margin-bottom: 15px; color: #667eea;">Services Include:</h4>
+                    <ul class="service-list">
+                        <li>Strategic career planning and goal setting</li>
+                        <li>Leadership development and executive coaching</li>
+                        <li>Career transition and change management</li>
+                        <li>Performance improvement mentoring</li>
+                        <li>Professional growth acceleration programs</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <h3>Industry-Specific Career Mentoring</h3>
+                    <p class="card-description"><strong>Specialized mentoring for your industry and profession.</strong> Connect with industry experts who understand your field's unique challenges and opportunities. Our sector-specific career mentors provide targeted guidance for technology professionals, marketing specialists, healthcare workers, finance experts, and more.</p>
+                    
+                    <h4 style="font-size: 1.2rem; margin-bottom: 15px; color: #667eea;">Featured Industries:</h4>
+                    <div class="industry-grid">
+                        <div class="industry-tag">Technology & Software Development</div>
+                        <div class="industry-tag">Digital Marketing & Growth</div>
+                        <div class="industry-tag">Healthcare & Medical</div>
+                        <div class="industry-tag">Financial Services</div>
+                        <div class="industry-tag">Legal Profession</div>
+                        <div class="industry-tag">Creative Industries</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Skill Development Programs -->
+        <section class="content-section skills-section">
+            <h2 class="section-title">Professional Skill Development Programs</h2>
+            
+            <div class="skills-grid">
+                <div class="skills-card">
+                    <h3>Technical Skills Mentoring & Training</h3>
+                    <p class="card-description"><strong>Master in-demand technical skills with expert guidance.</strong> Our technical mentors provide hands-on coaching in programming, data science, digital marketing, project management, and emerging technologies. Accelerate your learning curve with personalized skill development programs.</p>
+                    
+                    <h4 style="font-size: 1.2rem; margin-bottom: 15px; color: white;">Technical Mentoring Areas:</h4>
+                    <ul class="skills-list">
+                        <li>Software engineering and coding mentorship</li>
+                        <li>Data science and analytics coaching</li>
+                        <li>Digital marketing skills development</li>
+                        <li>Cloud computing and DevOps guidance</li>
+                        <li>Project management certification support</li>
+                        <li>AI and machine learning mentoring</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Soft Skills & Leadership Development -->
+        <section class="content-section leadership-section">
+            <h2 class="section-title">Soft Skills & Leadership Development</h2>
+            
+            <div class="leadership-card">
+                <h3>Leadership Development Services</h3>
+                <p class="card-description"><strong>Develop essential professional competencies for career success.</strong> Our leadership coaches focus on communication skills, emotional intelligence, team management, and executive presence. Build the soft skills that drive career advancement and professional success.</p>
+                
+                <h4 style="font-size: 1.2rem; margin-bottom: 20px; color: white;">Leadership Development Services:</h4>
+                <ul class="leadership-list">
+                    <li>Communication and presentation skills coaching</li>
+                    <li>Executive presence and leadership training</li>
+                    <li>Networking and relationship building strategies</li>
+                    <li>Negotiation skills and salary optimization</li>
+                    <li>Time management and productivity enhancement</li>
+                    <li>Emotional intelligence development</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Career Planning & Job Search Support -->
+        <section class="content-section">
+            <h2 class="section-title">Career Planning & Job Search Support</h2>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Strategic Career Planning Services</h3>
+                    <p class="card-description">Create a roadmap for long-term career success. Our career planning experts help you identify opportunities, assess market trends, and develop actionable strategies for professional advancement. Get personalized career assessments and strategic guidance.</p>
+                    
+                    <h4 style="font-size: 1.2rem; margin-bottom: 15px; color: #667eea;">Career Planning Features:</h4>
+                    <ul class="service-list">
+                        <li>Comprehensive career assessments and personality testing</li>
+                        <li>Industry analysis and market research</li>
+                        <li>Career path mapping and milestone planning</li>
+                        <li>Salary negotiation coaching and market analysis</li>
+                        <li>Personal branding and professional positioning</li>
+                        <li>Long-term career strategy development</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <h3>Job Search Coaching & Interview Preparation</h3>
+                    <p class="card-description">Land your dream job with expert job search support. Our job search coaches provide end-to-end guidance from resume optimization to interview mastery. Increase your job search success rate with proven strategies and personalized coaching.</p>
+                    
+                    <h4 style="font-size: 1.2rem; margin-bottom: 15px; color: #667eea;">Job Search Services:</h4>
+                    <ul class="service-list">
+                        <li>Resume writing and LinkedIn optimization</li>
+                        <li>Interview coaching and mock interview practice</li>
+                        <li>Job search strategy and application optimization</li>
+                        <li>Networking strategy and execution plans</li>
+                        <li>Offer negotiation and onboarding support</li>
+                        <li>ATS-friendly resume development</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Group Mentoring & Community Programs -->
+        <section class="content-section">
+            <h2 class="section-title">Group Mentoring & Community Programs</h2>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Cohort-Based Career Development</h3>
+                    <p class="card-description"><strong>Learn and grow with like-minded professionals.</strong> Join our group mentoring programs, mastermind circles, and professional cohorts. Benefit from peer learning, collaborative problem-solving, and shared experiences in structured group settings.</p>
+                    
+                    <h4 style="font-size: 1.2rem; margin-bottom: 15px; color: #667eea;">Group Program Options:</h4>
+                    <ul class="service-list">
+                        <li>Small group mentoring circles (6-8 participants)</li>
+                        <li>Industry-specific professional cohorts</li>
+                        <li>Leadership development masterminds</li>
+                        <li>Peer accountability partnerships</li>
+                        <li>Skills-based learning groups</li>
+                        <li>Executive roundtables and forums</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <h3>Professional Workshops & Training</h3>
+                    <p class="card-description"><strong>Enhance your skills through interactive workshops and seminars.</strong> Our expert-led workshops cover essential career development topics, industry trends, and practical skills training. Access both live sessions and on-demand learning resources.</p>
+                    
+                    <h4 style="font-size: 1.2rem; margin-bottom: 15px; color: #667eea;">Workshop Topics:</h4>
+                    <ul class="service-list">
+                        <li>Career advancement strategies and tactics</li>
+                        <li>Professional networking and relationship building</li>
+                        <li>Personal branding and thought leadership</li>
+                        <li>Industry trend analysis and future planning</li>
+                        <li>Skills gap assessment and development planning</li>
+                        <li>Performance optimization and productivity</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Digital Career Coaching Platform -->
+        <section class="content-section skills-section">
+            <h2 class="section-title">Digital Career Coaching Platform</h2>
+            
+            <div class="skills-grid">
+                <div class="skills-card">
+                    <h3>Virtual Mentoring & Online Coaching</h3>
+                    <p class="card-description"><strong>Access career mentoring anywhere, anytime through our digital platform.</strong> Our technology-enabled mentoring services include video coaching sessions, mobile app support, AI-powered career insights, and comprehensive online resources.</p>
+                    
+                    <h4 style="font-size: 1.2rem; margin-bottom: 15px; color: white;">Digital Platform Features:</h4>
+                    <ul class="skills-list">
+                        <li>High-quality video mentoring sessions</li>
+                        <li>Mobile career coaching app access</li>
+                        <li>AI-powered career recommendations and insights</li>
+                        <li>Progress tracking and goal management tools</li>
+                        <li>Resource library with templates and guides</li>
+                        <li>24/7 chat support and community access</li>
+                    </ul>
+                </div>
+
+                <div class="skills-card">
+                    <h3>Career Assessment & Analytics</h3>
+                    <p class="card-description"><strong>Make data-driven career decisions with our assessment tools.</strong> Access comprehensive career assessments, personality tests, skills gap analysis, and market intelligence to inform your career strategy and development plans.</p>
+                    
+                    <h4 style="font-size: 1.2rem; margin-bottom: 15px; color: white;">Assessment Services:</h4>
+                    <ul class="skills-list">
+                        <li>Professional strengths and personality assessments</li>
+                        <li>Skills gap analysis and development recommendations</li>
+                        <li>Career aptitude testing and matching</li>
+                        <li>Market salary analysis and benchmarking</li>
+                        <li>Industry trend analysis and forecasting</li>
+                        <li>ROI calculation for career investments</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Specialized Mentoring Programs -->
+        <section class="content-section leadership-section">
+            <h2 class="section-title">Specialized Mentoring Programs</h2>
+            
+            <div class="skills-grid">
+                <div class="skills-card">
+                    <h3>Career Transition & Change Management</h3>
+                    <p class="card-description">Navigate career transitions with confidence and clarity. Whether you're changing industries, returning to work, or pivoting your career direction, our transition specialists provide expert guidance and support throughout your career change journey.</p>
+                    
+                    <h4 style="font-size: 1.2rem; margin-bottom: 15px; color: white;">Transition Support Services:</h4>
+                    <ul class="skills-list">
+                        <li>Industry change and career pivot coaching</li>
+                        <li>Return-to-work programs after career breaks</li>
+                        <li>Military-to-civilian career transitions</li>
+                        <li>Entrepreneurship and startup mentoring</li>
+                        <li>Academic-to-industry career shifts</li>
+                        <li>Corporate-to-consulting transitions</li>
+                    </ul>
+                </div>
+
+                <div class="skills-card">
+                    <h3>Diversity, Equity & Inclusion Mentoring</h3>
+                    <p class="card-description">Advance your career while building inclusive workplaces. Our DEI-focused mentoring programs support underrepresented professionals, women in leadership, and diverse talent development. Access mentors who understand unique career challenges and opportunities.</p>
+                    
+                    <h4 style="font-size: 1.2rem; margin-bottom: 15px; color: white;">DEI Mentoring Programs:</h4>
+                    <ul class="skills-list">
+                        <li>Women in technology and leadership mentoring</li>
+                        <li>Minority professionals career advancement</li>
+                        <li>LGBTQ+ workplace navigation and development</li>
+                        <li>International professionals integration support</li>
+                        <li>Veterans career transition programs</li>
+                        <li>First-generation professionals guidance</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2 style="color: white; margin-bottom: 20px;">Ready to Transform Your Career?</h2>
+            <p style="color: rgba(255, 255, 255, 0.9); margin-bottom: 30px; font-size: 1.1rem;">Connect with expert mentors and accelerate your professional growth today</p>
+            <a href="#" class="cta-button">Start Your Mentoring Journey</a>
+        </section>
+    </div>
+</body>
+</html>
